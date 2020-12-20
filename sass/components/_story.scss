@@ -7,6 +7,15 @@
   padding: 6rem;
   padding-left: 9rem;
   transform: skewX(-12deg);
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  
+  }
+  @include respond(phone) {
+    transform: skewX(0deg);
+  }
 
   &__shape {
     width: 15rem;
@@ -20,15 +29,24 @@
     clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0deg);
+    }
   }
   &__img {
     backface-visibility: hidden;
     transition: all 0.5s;
     transform: translateX(-4rem) scale(1.4);
     height: 100%; // here we pass 100% because now the image occpies all possible space of its parent
+    @include respond(phone) {
+      transform: translateX(-4rem) skewX(0deg);
+    }
   }
   &__text {
     transform: skewX(12deg);
+    @include respond(phone) {
+      transform: skewX(0deg);
+    }
   }
 
   &__caption {

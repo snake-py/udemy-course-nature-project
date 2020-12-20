@@ -1,14 +1,57 @@
 @mixin clearfix {
-    &::after {
-        content: ''; // needs to be there otherwise the after element is not applied
-        display: table; // block works also
-        clear: both; // this clears all floats 
-    }   
+  &::after {
+    content: ''; // needs to be there otherwise the after element is not applied
+    display: table; // block works also
+    clear: both; // this clears all floats
+  }
 }
 
 @mixin absCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//Mediaquery manager
+/*
+0 - 600px:          Phone
+600 - 900px:        Tablet
+900 - 1200px:       Tablet Landscape
+1200 - 1800px:      Tablet Landscape Normal styles are getting applied
+1800px +:           Huge desktop
+*/
+
+/*
+$break argument choices 
+- phone 
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+
+// start of with - base - typography - layout (grid first) then header footer navigation - components
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { //600px/16px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { //900px/16px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { // 1200/16px
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { // 1800px/16px
+      @content;
+    }
+  }
 }
