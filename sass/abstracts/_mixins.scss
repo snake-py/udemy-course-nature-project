@@ -1,0 +1,14 @@
+@mixin clearfix {
+    &::after {
+        content: ''; // needs to be there otherwise the after element is not applied
+        display: table; // block works also
+        clear: both; // this clears all floats 
+    }   
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

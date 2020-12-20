@@ -1,0 +1,107 @@
+/* 
+Sudo class :link we use  
+the link is a special state of 
+a button, so if you want to use
+an anchor tag as a button the css
+ should look like this.btn:link
+ */
+
+/* The tranistion has to be on the intial state */
+
+.btn {
+  // change for the <button> element
+  border: none;
+  cursor: pointer;
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
+  }
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    /* have on active a lower blur so it looks if the button moves downards again
+      box-shadow: Y X Blur color;
+      */
+    outline: none;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 1rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-dark-grey;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--green {
+    background-color: $color-primary-dark;
+    color: $color-white;
+    &::after {
+      background-color: $color-primary-dark;
+    }
+  }
+  &--animated {
+    /* Appling the animation properties of the start  with fill-mode */
+    animation: moveInBottom 500ms ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+  &::after {
+    /* 
+      Use Sudo elements for advanced animations 
+      The sudo elements needs to have a content set
+      otherwise it wont show up
+      */
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary-dark;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 0.1rem solid $color-primary-dark;
+    padding: 0.3rem;
+    transition: all 0.15s ease-in;
+  }
+
+  &:hover {
+    background-color: $color-primary-dark;
+    color: $color-white;
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+  }
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+  }
+}

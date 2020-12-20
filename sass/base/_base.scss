@@ -1,0 +1,24 @@
+/* Normlise Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // global definition of 1 rem equals 10px
+}
+
+/*
+BUT ROOT FONT SIZE IS SET IN HTML 
+Set all font settings in the body,
+because font is inherited into all child elements,
+better perfomance then setting it onto each element
+*/
+
+body {
+  padding: 3rem;
+  box-sizing: border-box;
+}

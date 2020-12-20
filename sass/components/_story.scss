@@ -1,0 +1,55 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, .6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    overflow: hidden; // gets rid of small bug when it svery small that the picture is flowing out
+    height: 15rem;
+    float: left;
+    // -webkit-shape-outside: circle(50% at 50% 50%);  // not needed anymore
+    shape-outside: circle(50% at 50% 50%); // radius x and y value to set the center of the circle within the object 50% and 50% set it in the middle of the object
+    // shape outside only works if the element has a width a height and if it is floated
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+  }
+  &__img {
+    backface-visibility: hidden;
+    transition: all 0.5s;
+    transform: translateX(-4rem) scale(1.4);
+    height: 100%; // here we pass 100% because now the image occpies all possible space of its parent
+  }
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%); // below 100% darker
+  }
+}
