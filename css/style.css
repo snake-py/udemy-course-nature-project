@@ -299,7 +299,7 @@ an anchor tag as a button the css
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
     .card__picture--1 {
-      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url("../img/nat-5.jpg"); }
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url("./../img/nat-5.jpg"); }
     .card__picture--2 {
       background-image: linear-gradient(to right bottom, #55c57a, #28b485), url("../img/nat-6.jpg"); }
     .card__picture--3 {
